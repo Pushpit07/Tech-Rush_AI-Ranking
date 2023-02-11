@@ -8,7 +8,7 @@ search = uszipcode.search.SearchEngine()
 
 st.set_page_config(layout="wide")
 st.title('A Location-Based Analysis System for Sears')
-st.subheader("Yes! It's a web app.")
+st.header("Yes! It's a web app.")
 st.subheader('Problem Statement')
 
 """Sears is a pioneer in the retail industry and operates in a multitude of domains, selling millions of products on a daily basis and continuously adding thousands of new products to its product line.
@@ -210,7 +210,7 @@ DISTANCE_WEIGHT = 0.4
 POPULATION_DENSITY_WEIGHT = 0.3
 ECONOMY_WEIGHT = 0.3
 
-st.subheader('Now your turn 😉')
+st.header('Now your turn 😉')
 st.subheader('Provide the weightage for each parameter (Just slide it xD)')
 
 st.write("Default weightage for each parameter is " + str(DISTANCE_WEIGHT) + " for distance, " +
@@ -285,7 +285,7 @@ def callback_target_distance_weight():
 
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader('Provide weightage for Walmart, Costco, and Target stores (Slide it again)')
+    st.subheader('Provide weightage for Walmart, Costco, and Target stores')
     NEAREST_WALMART_DISTANCE_WEIGHT = st.slider(
         'Nearest Walmart Distance weight', min_value=0.0, max_value=1.0, value=NEAREST_WALMART_DISTANCE_WEIGHT, step=0.01, key="NEAREST_WALMART_DISTANCE_WEIGHT", on_change=callback_walmart_distance_weight)
     NEAREST_COSTCO_DISTANCE_WEIGHT = st.slider(
@@ -321,7 +321,7 @@ def calculate_score(df):
 
     df['rank'] = df['normalised_score'].rank(ascending=False)
 
-    st.subheader('Top ' + str(NUMBER_OF_TOP_RESULTS) + ' ranked locations. Here you go!')
+    st.header('Top ' + str(NUMBER_OF_TOP_RESULTS) + ' ranked locations. Here you go!')
 
     top_df = df.nsmallest(NUMBER_OF_TOP_RESULTS, "rank")
     st.dataframe(top_df)
