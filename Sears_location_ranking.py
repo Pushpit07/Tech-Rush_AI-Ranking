@@ -8,6 +8,7 @@ search = uszipcode.search.SearchEngine()
 
 st.set_page_config(layout="wide")
 st.title('A Location-Based Analysis System for Sears')
+st.subheader("Yes! It's a web app. Say NO to data scripts.")
 st.subheader('Problem Statement')
 
 """Sears is a pioneer in the retail industry and operates in a multitude of domains, selling millions of products on a daily basis and continuously adding thousands of new products to its product line.
