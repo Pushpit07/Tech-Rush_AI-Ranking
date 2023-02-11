@@ -7,7 +7,8 @@ import uszipcode
 search = uszipcode.search.SearchEngine()
 
 st.set_page_config(layout="wide")
-st.title('Problem Statement 2')
+st.title('A Location-Based Analysis System for Sears')
+st.subheader('Problem Statement')
 
 """Sears is a pioneer in the retail industry and operates in a multitude of domains, selling millions of products on a daily basis and continuously adding thousands of new products to its product line.
 In order to effectively evaluate the performance of retail stores, it is essential to have a consistent analysis system in place factoring the local market and competition.
