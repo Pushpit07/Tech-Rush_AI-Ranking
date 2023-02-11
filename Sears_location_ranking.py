@@ -8,7 +8,7 @@ search = uszipcode.search.SearchEngine()
 
 st.set_page_config(layout="wide")
 st.title('A Location-Based Analysis System for Sears')
-st.subheader("Yes! It's a web app. Say NO to data scripts.")
+st.subheader("Yes! It's a web app.")
 st.subheader('Problem Statement')
 
 """Sears is a pioneer in the retail industry and operates in a multitude of domains, selling millions of products on a daily basis and continuously adding thousands of new products to its product line.
@@ -22,7 +22,7 @@ Given a list of store location data, build a system that will generate a ranking
 
 The weightage of these parameters needs to be configurable in the system."""
 
-st.subheader('Load store location data')
+st.subheader("Loaded the store location data. Let's get started!")
 data = pd.read_csv(
     "https://raw.githubusercontent.com/Pushpit07/Tech-Rush_AI-Ranking/main/locn_data.csv")
 
@@ -35,7 +35,7 @@ st.dataframe(df)
 
 
 st.subheader(
-    'Add coordinates, population density, and economy data for locations given in the dataset')
+    'Added coordinates, population density, and economy data for locations given in the dataset')
 
 
 def get_coordinates_from_address(address):
@@ -123,7 +123,7 @@ df = df[df['longitude'] > -170]
 
 st.dataframe(df)
 
-st.subheader('Plotting all locations on the map')
+st.subheader('Plotting all locations on the map. But what are the best locations?')
 st.map(df)
 
 
@@ -211,7 +211,7 @@ POPULATION_DENSITY_WEIGHT = 0.3
 ECONOMY_WEIGHT = 0.3
 
 
-st.subheader('Enter weightage for each parameter')
+st.subheader('Provide weightage for each parameter (Just slide it xD)')
 
 st.write("Default weightage for each parameter is " + str(DISTANCE_WEIGHT) + " for distance, " +
          str(POPULATION_DENSITY_WEIGHT) + " for population density, and " + str(ECONOMY_WEIGHT) + " for economy.")
@@ -285,7 +285,7 @@ def callback_target_distance_weight():
 
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader('Enter weightage for Walmart, Costco, and Target stores')
+    st.subheader('Provide weightage for Walmart, Costco, and Target stores')
     NEAREST_WALMART_DISTANCE_WEIGHT = st.slider(
         'Nearest Walmart Distance weight', min_value=0.0, max_value=1.0, value=NEAREST_WALMART_DISTANCE_WEIGHT, step=0.01, key="NEAREST_WALMART_DISTANCE_WEIGHT", on_change=callback_walmart_distance_weight)
     NEAREST_COSTCO_DISTANCE_WEIGHT = st.slider(
@@ -294,7 +294,7 @@ with col1:
         'Nearest Target Distance weight', min_value=0.0, max_value=1.0, value=NEAREST_TARGET_DISTANCE_WEIGHT, step=0.01, key="NEAREST_TARGET_DISTANCE_WEIGHT", on_change=callback_target_distance_weight)
 
 
-st.subheader('Enter the number of top results to obtain')
+st.subheader('Provide the number of top results to obtain')
 NUMBER_OF_TOP_RESULTS = 5
 NUMBER_OF_TOP_RESULTS = st.radio("Choose a number", index=2, options=[
                                  1, 3, 5, 10], key="NUMBER_OF_TOP_RESULTS", horizontal=True)
