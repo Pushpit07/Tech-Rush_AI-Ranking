@@ -22,7 +22,7 @@ Given a list of store location data, build a system that will generate a ranking
 
 The weightage of these parameters needs to be configurable in the system."""
 
-st.subheader("Loaded the store location data. Let's get started!")
+st.subheader("Loaded the store location data (Let's get started!)")
 data = pd.read_csv(
     "https://raw.githubusercontent.com/Pushpit07/Tech-Rush_AI-Ranking/main/locn_data.csv")
 
@@ -123,11 +123,11 @@ df = df[df['longitude'] > -170]
 
 st.dataframe(df)
 
-st.subheader('Plotting all locations on the map. But what are the best locations?')
+st.subheader('Plotted all locations on the map (But what are the best locations?)')
 st.map(df)
 
 
-st.subheader('Calculating distance from nearest stores')
+st.subheader('Calculated distance from nearest stores (All data ready🤝)')
 
 # The haversine formula is used to  calculate the distance between two geographic coordinates on the earth.
 # This formula calculates the great-circle distance between two points on a sphere given their longitudes and latitudes.
@@ -210,8 +210,8 @@ DISTANCE_WEIGHT = 0.4
 POPULATION_DENSITY_WEIGHT = 0.3
 ECONOMY_WEIGHT = 0.3
 
-
-st.subheader('Provide weightage for each parameter (Just slide it xD)')
+st.subheader('Now your turn 😉')
+st.subheader('Provide the weightage for each parameter (Just slide it xD)')
 
 st.write("Default weightage for each parameter is " + str(DISTANCE_WEIGHT) + " for distance, " +
          str(POPULATION_DENSITY_WEIGHT) + " for population density, and " + str(ECONOMY_WEIGHT) + " for economy.")
@@ -285,7 +285,7 @@ def callback_target_distance_weight():
 
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader('Provide weightage for Walmart, Costco, and Target stores')
+    st.subheader('Provide weightage for Walmart, Costco, and Target stores (Slide it again)')
     NEAREST_WALMART_DISTANCE_WEIGHT = st.slider(
         'Nearest Walmart Distance weight', min_value=0.0, max_value=1.0, value=NEAREST_WALMART_DISTANCE_WEIGHT, step=0.01, key="NEAREST_WALMART_DISTANCE_WEIGHT", on_change=callback_walmart_distance_weight)
     NEAREST_COSTCO_DISTANCE_WEIGHT = st.slider(
@@ -321,7 +321,7 @@ def calculate_score(df):
 
     df['rank'] = df['normalised_score'].rank(ascending=False)
 
-    st.subheader('Top ' + str(NUMBER_OF_TOP_RESULTS) + ' ranked locations')
+    st.subheader('Top ' + str(NUMBER_OF_TOP_RESULTS) + ' ranked locations. Here you go!')
 
     top_df = df.nsmallest(NUMBER_OF_TOP_RESULTS, "rank")
     st.dataframe(top_df)
