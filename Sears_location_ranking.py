@@ -6,9 +6,22 @@ import math
 import uszipcode
 search = uszipcode.search.SearchEngine()
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title='Sears Location Ranking', page_icon="🎖", layout="wide")
 st.title('A Location-Based Analysis System for Sears')
 st.header("Yes! It's a web app.")
+
+custom_css="""
+    <style>
+        #a-location-based-analysis-system-for-sears {
+            text-align: center
+        }
+        #yes-it-s-a-web-app {
+            text-align: center
+        }
+    </style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 st.subheader('Problem Statement')
 
 """Sears is a pioneer in the retail industry and operates in a multitude of domains, selling millions of products on a daily basis and continuously adding thousands of new products to its product line.
@@ -127,7 +140,7 @@ st.subheader('Plotted all locations on the map (But what are the best locations?
 st.map(df)
 
 
-st.subheader('Calculated distance from nearest stores (All data ready🤝)')
+st.subheader('Calculated distance from nearest stores (All data ready 🤝)')
 
 # The haversine formula is used to  calculate the distance between two geographic coordinates on the earth.
 # This formula calculates the great-circle distance between two points on a sphere given their longitudes and latitudes.
